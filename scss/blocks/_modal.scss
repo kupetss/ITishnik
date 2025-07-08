@@ -1,0 +1,178 @@
+.modal {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+}
+
+.modal.active {
+	opacity: 1;
+	visibility: visible;
+}
+
+.modal__content {
+	background-color: #fff;
+	border-radius: 30px;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+	width: 90%;
+	max-width: 700px;
+	max-height: 90vh;
+	padding: 0;
+	overflow-y: auto;
+	transform: translateY(20px);
+	transition: transform 0.3s ease;
+}
+
+.modal.active .modal__content {
+	transform: translateY(0);
+}
+
+/* Стили карточки курса */
+.courses__modal {
+	display: flex;
+	flex-direction: column;
+	padding: 0px 25px 25px 25px;
+}
+
+.modal__header {
+	padding: 10px 10px 0;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.courses__modal__img {
+	width: 100%;
+	height: 180px;
+	border-radius: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+
+.courses__modal__img img {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: contain;
+}
+
+.courses__modal__desc {
+	padding: 0 10px;
+}
+
+.courses__modal__title {
+	font-size: 22px;
+	font-weight: 700;
+	color: #2d3748;
+	margin-bottom: 12px;
+	line-height: 1.3;
+}
+
+.courses__modal__text {
+	font-size: 15px;
+	color: #000000c5;
+	font-weight: 500;
+	line-height: 1.5;
+	margin-bottom: 15px;
+}
+
+.courses__modal__level {
+	display: inline-block;
+	padding: 6px 12px;
+	background-color: #e2e8f0;
+	color: #2d3748;
+	border-radius: 20px;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+/* Анимация появления */
+@keyframes modalFadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.modal__content {
+	animation: modalFadeIn 0.3s ease forwards;
+}
+
+.modal__close {
+	width: 32px;
+	height: 32px;
+	background-color: #f1f1f1;
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.2s ease;
+	z-index: 10;
+}
+
+.modal__close:hover {
+	background-color: #e0e0e0;
+	transform: rotate(90deg);
+}
+
+.modal__close::before,
+.modal__close::after {
+	content: '';
+	position: absolute;
+	width: 18px;
+	height: 2px;
+	background-color: #555;
+}
+
+.modal__close::before {
+	transform: rotate(45deg);
+}
+
+.modal__close::after {
+	transform: rotate(-45deg);
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+	.modal__header {
+		padding: 0px 0px 0;
+	}
+
+	.modal__content {
+		width: 95%;
+		padding: 20px 15px;
+	}
+
+	.courses__modal__img {
+		height: 150px;
+	}
+
+	.courses__modal__title {
+		font-size: 20px;
+	}
+
+	.courses__modal__text {
+		font-size: 14px;
+	}
+
+	.modal__close {
+		top: 10px;
+		right: 10px;
+		width: 28px;
+		height: 28px;
+		font-size: 20px;
+	}
+}

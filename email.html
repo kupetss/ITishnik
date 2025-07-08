@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .admin-info {
+            background-color: #f8f8f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        model-viewer{
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+        }
+        .hello{
+            width: 100%;
+        }
+        .hello img{
+            width: 100%;
+        }
+    </style>
+	<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        {{if eq .RecipientType "user"}}
+        <div class="hello">
+<img src="https://i.ibb.co/Q7yFxDvX/image.jpg" alt="image" border="0">
+        </div>
+        <h1>Привет, {{.Name}}! 👋</h1>
+            <p>Благодарим вас за обращение в школу программирования ITишник!</p>
+            <p>Мы получили ваши контактные данные:</p>
+            <ul>
+                <li><strong>Email:</strong> {{.Email}}</li>
+                <li><strong>Телефон:</strong> {{.Phone}}</li>
+                <li><strong>Выбранный курс:</strong> {{.Course}}</li>
+
+            </ul>
+            <p>Наш менеджер свяжется с вами в ближайшее время для уточнения деталей.</p>
+           
+       {{else}}
+            <h1>Новая заявка с сайта</h1>
+            <p>Поступила новая заявка от посетителя сайта:</p>
+            <ul>
+                <li><strong>Имя:</strong> {{.Name}}</li>
+                <li><strong>Email:</strong> {{.Email}}</li>
+                <li><strong>Телефон:</strong> {{.Phone}}</li>
+                <li><strong>Выбранный курс:</strong> {{.Course}}</li>
+            </ul>
+            <div class="admin-info">
+                <p><strong>Время отправки:</strong> {{.CurrentTime}}</p>
+            </div>
+        {{end}}
+    </div>
+</body>
+</html>

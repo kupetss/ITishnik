@@ -1,0 +1,198 @@
+.heroes {
+	.wrapper {
+		.heroes__guide {
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			margin-bottom: 40px;
+			margin-left: 250px;
+			padding: 15px 20px;
+			border: 1px solid black;
+			border-radius: 50px;
+			background-color: $green-color;
+			text-align: center;
+			font-size: 16px;
+			font-weight: 600;
+			transform: rotate(-4.73deg);
+			animation: float 3s ease-in-out infinite;
+			transition: all 0.3s ease;
+
+			&:hover {
+				transform: rotate(-4.73deg) scale(1.05);
+				background-color: darken($green-color, 5%);
+			}
+		}
+
+		.heroes__cards {
+			display: flex;
+			justify-content: space-between;
+
+			.heroes__card {
+				position: relative;
+				width: 310px;
+				min-height: 310px;
+				border: 1px solid black;
+				border-radius: 50px;
+
+				.heroes__card__tablet {
+					position: absolute;
+					top: 25px;
+					left: 25px;
+					padding: 13px 25px;
+					border: 1px solid black;
+					border-radius: 30px;
+					background-color: #ffffff;
+					font-size: 16px;
+					font-weight: 600;
+
+					&--skills {
+						font-size: 18px;
+						font-weight: 600;
+						top: 25px;
+						left: 25px;
+						position: absolute;
+					}
+				}
+
+				.sticker {
+					position: absolute;
+					left: 50%;
+					transform: translateX(-50%);
+					transition: transform 1300ms ease;
+
+					&--skils {
+						bottom: -9px;
+						transform: translateX(-50%) rotate(5deg);
+					}
+
+					&--new {
+						top: 60%;
+						transform: translate(-50%, -50%) rotate(-15deg);
+						&:hover {
+							transform: translate(-50%, -50%) rotate(-15deg) scale(1.1);
+						}
+					}
+
+					&:not(.sticker--skils, .sticker--new) {
+						top: 60%;
+						transform: translate(-50%, -50%);
+					}
+
+					&:not(.sticker--skils, .sticker--new):hover {
+						transform: scale(1.1) translate(-50%, -50%);
+					}
+				}
+
+				&--pink {
+					background-color: $pink-color;
+					transform: rotate(15deg);
+				}
+
+				&--purple {
+					background-color: $violet-color;
+					transform: rotate(-5deg);
+				}
+
+				&--green {
+					background-color: $green-color;
+					transform: rotate(10deg);
+				}
+
+				&--orange {
+					background-color: $orange-color;
+					transform: rotate(-10deg);
+				}
+			}
+		}
+	}
+}
+
+@keyframes float {
+	0%,
+	100% {
+		transform: translateY(0) rotate(-4.73deg);
+	}
+	50% {
+		transform: translateY(-8px) rotate(-4.73deg);
+	}
+}
+
+@media (max-width: 1024px) {
+	.heroes{
+		.wrapper{
+			.heroes__group{
+				.heroes__guide{
+					transform: rotate(0deg);
+				}
+				.heroes__cards{
+					flex-wrap: wrap;
+					justify-content: center;
+					gap: 40px;
+					.heroes__card{
+						transform: rotate(0);
+					}
+				}
+			}
+		}
+	}
+	
+}
+
+@media (max-width: 820px) {
+	.heroes{
+		.wrapper{
+			.heroes__group{
+				.heroes__guide{
+					transform: rotate(0deg);
+				}
+				.heroes__cards{
+					flex-wrap: wrap;
+					justify-content: center;
+					gap: 40px;
+					.heroes__card{
+						transform: rotate(0);
+					}
+				}
+			}
+		}
+	}
+	
+}
+
+@media (max-width: 768px) {
+	.heroes {
+		display: none;
+		.wrapper {
+			.heroes__guide {
+				transform: rotate(0);
+				margin-left: 0;
+				padding: 10px 20px;
+				animation: float-mobile 3s ease-in-out infinite;
+
+				&:hover {
+					transform: rotate(0) scale(1.05);
+				}
+			}
+
+			.heroes__cards {
+				flex-wrap: wrap;
+				justify-content: center;
+				gap: 40px;
+
+				.heroes__card {
+					transform: rotate(0) !important;
+				}
+			}
+		}
+	}
+}
+
+@keyframes float-mobile {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-8px);
+	}
+}
