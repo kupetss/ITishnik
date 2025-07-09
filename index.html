@@ -23,9 +23,9 @@
 			property="og:image"
 			content="https://ваш-сайт.ru/img/logo-footer.svg"
 		/>
-		<link rel="stylesheet" href="./css/fontello.css" />
-		<link rel="stylesheet" href="./css/main.css" />
-		<link rel="icon" href="./img/fav-icon.png" />
+		<link rel="stylesheet" href="/css/fontello.css" />
+		<link rel="stylesheet" href="/css/main.css" />
+		<link rel="icon" href="/img/fav-icon.png" />
 		<title>ITишник — школа программирования</title>
 		<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
 	</head>
@@ -47,39 +47,71 @@
 				</nav>
 			</div>
 		</header>
-		<section class="banner">
-			<div class="wrapper">
-				<div class="banner__row">
-					<div class="banner-box">
-						<h1 class="banner-box_title">
-							Прокачай свой<br /><span>IT</span> вместе с нами
-						</h1>
-						<p class="banner-box_info">
-							Начни путь в программировании с экспертами в своей области.
-							Современные технологии, практические навыки, поддержка на каждом
-							этапе.
-						</p>
-						<div class="banner-btn__container">
-							<a href="#feedback" class="banner-btn">Записаться</a>
-							<a href="#courses" class="more-btn">Подробнее &#8594;</a>
-						</div>
-					</div>
-					<div class="banner-img__container">
-						<model-viewer src="smol_ame_in_an_upcycled_terrarium_hololiveen (1).glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1" autoplay camera-orbit="32.45deg 81.95deg 8.697m" field-of-view="30deg">
-							<div class="progress-bar hide" slot="progress-bar">
-								<div class="update-bar"></div>
-							</div>
-							<!-- <button slot="ar-button" id="ar-button">
-								View in your space
-							</button> -->
-							<!-- <div id="ar-prompt">
-								<img src="https://modelviewer.dev/shared-assets/icons/hand.png">
-							</div> -->
-						</model-viewer>
-					</div>
-				</div>
-			</div>
-		</section>
+<section class="about" id="about">
+  <div class="wrapper">
+    <h1 class="about__title">Что тебя ждет с ITишник?</h1>
+    <div class="about__line"></div>
+
+    <div class="about__columns">
+      <ul class="about__list">
+        <li>
+          <svg class="about__icon" viewBox="0 0 24 24" fill="#CA9DFD">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+          </svg>
+          Поддержка онлайн
+        </li>
+        <li>
+          <svg class="about__icon" viewBox="0 0 24 24" fill="#CA9DFD">
+            <path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/>
+          </svg>
+          Мотивационные мероприятия
+        </li>
+        <li>
+          <svg class="about__icon" viewBox="0 0 24 24" fill="#CA9DFD">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+          </svg>
+          Групповые встречи-обсуждения
+        </li>
+      </ul>
+
+      <ul class="about__list">
+        <li>
+          <svg class="about__icon" viewBox="0 0 24 24" fill="#BDC94D">
+            <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l1.6-1.6c.5-.4.5-1.1.1-1.4z"/>
+          </svg>
+          Тематические мастер-классы
+        </li>
+        <li>
+          <svg class="about__icon" viewBox="0 0 24 24" fill="#BDC94D">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+          </svg>
+          Индивидуальные консультации
+        </li>
+        <li>
+          <svg class="about__icon" viewBox="0 0 24 24" fill="#BDC94D">
+            <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/>
+          </svg>
+          Карьерный партнер
+        </li>
+      </ul>
+
+      <ul class="about__list">
+        <li>
+          <svg class="about__icon" viewBox="0 0 24 24" fill="#EE9C60">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+          Психологическая поддержка
+        </li>
+        <li>
+          <svg class="about__icon" viewBox="0 0 24 24" fill="#EE9C60">
+            <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/>
+          </svg>
+          Обширная сеть доступных знаний
+        </li>
+      </ul>
+    </div>
+  </div>
+<!-- </section>
 		<section class="about" id="about">
 			<div class="wrapper">
 				<h1 class="about__title">Что тебя ждет с ITишник?</h1>
@@ -106,10 +138,10 @@
 					</ul>
 				</div>
 			</div>
-		</section>
+		</section> -->
 		<section class="format">
 			<div class="wrapper">
-				<div class="formar__title">
+				<div class="format__title">
 					<p>Выбери удобный для себя<br /><span>формат обучения</span></p>
 				</div>
 				<div class="format__cards">
@@ -230,7 +262,7 @@
 						</div>
 						<div class="reviews__card__user">
 							<div
-								class="reviews__card__user__avatar reviews__card__user__avatar--purple">
+								class="reviews__card__user__avatar reviews__card__user__avatar--purple">M
 							</div>
 							<div class="reviews__card__user__desc">
 								<div class="reviews__card__user__name">Максим</div>
@@ -328,13 +360,13 @@
 							<div class="custom-select">
 								<div id="selected-course" class="selected-option">Выберите курс</div>
 								<ul class="dropdown-options">
-									<li>ЕГЭ/ОГЭ по математике</li>
+									<li>ЕГЭ по математике</li>
 									<li>ЕГЭ/ОГЭ по информатике</li>
 									<li>HTML/CSS</li>
 									<li>Python</li>
 									<li>C++</li>
 									<li>JavaScript</li>
-									<li>Математика начальной школы</li>
+									<li>ОГЭ по математике</li>
 									<li>Геометрия/Алгебра</li>
 									<li>Компьютерная грамотность</li>
 								</ul>
@@ -353,7 +385,7 @@
 									<div class="feedback__info__item__desc">
 										<div class="feedback__info__item__title">Адрес</div>
 										<div class="feedback__info__item__text">
-											г. Владимир, ул. Ставровскеая 8
+											<a href="https://yandex.ru/maps/192/vladimir/house/stavrovskaya_ulitsa_8/YEkYdQNkQEcHQFtsfX1zcXRnbQ==/?ll=40.344921%2C56.120849&z=16.65г.">Владимир, ул. Ставровскеая 8</a>
 										</div>
 									</div>
 								</div>
@@ -364,7 +396,7 @@
 									<div class="feedback__info__item__desc">
 										<div class="feedback__info__item__title">Телефон</div>
 										<div class="feedback__info__item__text">
-											+7 (902) 882-54-87
+											<a href="tel:+79028825487">+7 (902) 882-54-87</a>										
 										</div>
 									</div>
 								</div>
@@ -375,7 +407,7 @@
 									<div class="feedback__info__item__desc">
 										<div class="feedback__info__item__title">Email</div>
 										<div class="feedback__info__item__text">
-											studiorepeet23@mail.ru
+											<a href="mailto:studiorepeet23@mail.ru">studiorepeet23@mail.ru</a>
 										</div>
 									</div>
 								</div>
@@ -469,10 +501,9 @@
 						<h3>Контактная информация</h3>
 						<address>
 							<strong>Адрес:</strong><br />
-							<p>г. Владимир, ул. Ставровская 8</p>
-
+								<p><a href="https://yandex.ru/maps/192/vladimir/house/stavrovskaya_ulitsa_8/YEkYdQNkQEcHQFtsfX1zcXRnbQ==/?ll=40.344921%2C56.120849&z=16.65г.">Владимир, ул. Ставровскеая 8</a></p>
 							<strong>Телефон:</strong><br />
-							<p><a href="tel:+78128825487">+7 (902) 882-54-87</a></p>
+							<p><a href="tel:+79028825487">+7 (902) 882-54-87</a></p>
 
 							<strong>Email:</strong><br />
 							<p>

@@ -258,6 +258,9 @@
     font-size: 16px;
     color: #5c5c5c;
     transition: all 0.3s ease;
+    a{
+      color: #5c5c5c;
+    }
   }
 
   &__socials {
@@ -343,11 +346,13 @@
     .feedback__form{
       position: relative;
       z-index: 1000;
+      margin-bottom: -40px;
     }
 
     .feedback__info{
       position: relative;
       z-index: 10;
+      margin-bottom: -100px;
     }
   }
 
@@ -366,5 +371,33 @@
     &__text {
       font-size: 16px;
     }
+  }
+}
+
+@media (max-width: 476px) {
+  .feedback{
+   .wrapper{
+    .feedback__info__wrapper{
+      .feedback__info{
+        &__items {
+          .feedback__info__item{
+            &__desc{
+              border: solid white;
+              max-width: 200px;
+            }
+            &__icon{
+              border: solid white;
+              width: 55px;
+              height: 55px;
+              img{
+                width: 55px;
+                height: 55px;
+              }
+            }
+          }
+        }
+      } 
+    } 
+   }
   }
 }
