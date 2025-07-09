@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"crypto/tls"
 	"fmt"
 	"html/template"
 	"log"
@@ -20,11 +21,24 @@ type FormData struct {
 	Course string
 }
 
+func redirectToHTTPS(w http.ResponseWriter, r *http.Request) {
+	http.Redirect(w, r, "https://"+r.Host+r.RequestURI, http.StatusMovedPermanently)
+}
+
 func homeH(w http.ResponseWriter, r *http.Request) {
+	if r.TLS == nil {
+		redirectToHTTPS(w, r)
+		return
+	}
 	http.ServeFile(w, r, "index.html")
 }
 
 func submitH(w http.ResponseWriter, r *http.Request) {
+	if r.TLS == nil {
+		redirectToHTTPS(w, r)
+		return
+	}
+
 	if r.Method != http.MethodPost {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		return
@@ -120,6 +134,11 @@ func main() {
 		log.Printf("Ошибка загрузки .env файла: %v", err)
 	}
 
+	go func() {
+		http.HandleFunc("/", redirectToHTTPS)
+		log.Fatal(http.ListenAndServe(":80", nil))
+	}()
+
 	http.HandleFunc("/", homeH)
 	http.HandleFunc("/submit", submitH)
 
@@ -129,9 +148,28 @@ func main() {
 
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "80"
+		port = "443"
+	}
+	
+	cfg := &tls.Config{
+		MinVersion:               tls.VersionTLS12,
+		CurvePreferences:         []tls.CurveID{tls.CurveP521, tls.CurveP384, tls.CurveP256},
+		PreferServerCipherSuites: true,
+		CipherSuites: []uint16{
+			tls.TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,
+			tls.TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,
+			tls.TLS_RSA_WITH_AES_256_GCM_SHA384,
+			tls.TLS_RSA_WITH_AES_256_CBC_SHA,
+		},
 	}
 
-	log.Printf("Сервер запущен на порту %s", port)
-	log.Fatal(http.ListenAndServe(":"+port, nil))
+	srv := &http.Server{
+		Addr:         ":" + port,
+		Handler:      nil,
+		TLSConfig:    cfg,
+		TLSNextProto: make(map[string]func(*http.Server, *tls.Conn, http.Handler), 0),
+	}
+
+	log.Printf("Сервер запущен на порту %s (HTTPS)", port)
+	log.Fatal(srv.ListenAndServeTLS("/etc/letsencrypt/live/itshnik.site/fullchain.pem", "/etc/letsencrypt/live/itshnik.site/privkey.pem"))
 }
